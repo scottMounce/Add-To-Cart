@@ -4,7 +4,7 @@ const port = 3000;
 const {Item} = require('../Database/database.js')
 app.use(express.json());
 
-
+app.use(express.static(__dirname + '/../Dist'))
 
 app.get('/', (req, res) => {
   res.send('Hello from get');
