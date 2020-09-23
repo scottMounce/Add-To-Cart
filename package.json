@@ -1,0 +1,28 @@
+{
+  "name": "etsy-cart",
+  "version": "1.0.0",
+  "description": "Add-To-Cart component for etsy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon Server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HRR48-FEC-SquawkinPhoenix/Add-To-Cart.git"
+  },
+  "author": "Yousif Faraj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HRR48-FEC-SquawkinPhoenix/Add-To-Cart/issues"
+  },
+  "homepage": "https://github.com/HRR48-FEC-SquawkinPhoenix/Add-To-Cart#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.10.6",
+    "nodemon": "^2.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
