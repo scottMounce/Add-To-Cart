@@ -14,7 +14,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <p className="storeName">{this.state.store}</p>
-        <p className="sales">{this.state.sales} sales   <span clas>|</span> *****</p>
+        <p className="sales">{this.state.sales} sales   <span className='salesDivider'>|</span> *****</p>
         <h6 className="title">{this.state.title}</h6>
         <p className="price">${this.state.price} <span className="stock">In stock</span></p>
         <label className="selectTitle">Size
