@@ -3,11 +3,12 @@ const cartCon = mongoose.createConnection('mongodb://localhost/cart'); // to con
 
 
 const cart = mongoose.Schema({
-  title: String,
-  price: Number,
-  quantity: Number,
-  size: String,
-  image: String,
+  Id: { type : Number, unique : true, required : true},
+  Title: String,
+  Price: Number,
+  Quantity: Number,
+  Size: String,
+  Image: String,
 })
 
 const CartItem = cartCon.model('CartItem', cart);

@@ -5,13 +5,14 @@ const productCon = mongoose.createConnection('mongodb://localhost/product'); // 
 
 
 const products = mongoose.Schema({
-  store: String,
-  sales: Number,
-  title: String,
-  price: String,
-  quantity: Number,
-  size: String,
-  image: String
+  Id: { type : Number, unique : true, required : true},
+  Store: String,
+  Sales: Number,
+  Title: String,
+  Price: String,
+  Quantity: Number,
+  Size: String,
+  Image: String
 })
 
 
