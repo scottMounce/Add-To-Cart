@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon Server/index.js",
-    "build": "babel Client --out-dir Dist --presets @babel/preset-react --source-maps inline --watch"
+    "build": "babel Client --out-dir Dist --presets @babel/preset-react --source-maps inline --watch",
+    "seed": "node ./Server/Database/dbscript.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "@babel/core": "^7.11.6",
     "@babel/preset-react": "^7.10.4",
     "express": "^4.17.1",
+    "faker": "^5.1.0",
     "mongo": "^0.1.0",
     "mongoose": "^5.10.6",
     "nodemon": "^2.0.4",
