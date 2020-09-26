@@ -1,21 +1,22 @@
 const mongoose = require('mongoose');
 mongoose.set('useUnifiedTopology', true); // to rid of deprication errors
 mongoose.set('useNewUrlParser', true); // to rid of deprication error
-const productCon = mongoose.createConnection('mongodb://localhost/product'); // to connect to multiple databases at once
+mongoose.connect('mongodb://localhost/product'); // to connect to multiple databases at once
 
 
 const products = mongoose.Schema({
-  Store: String,
-  Sales: Number,
-  Title: String,
-  Price: String,
-  Quantity: Number,
-  Size: String,
-  Image: String
-})
+  _id: Number,
+  store: String,
+  sales: Number,
+  title: String,
+  price: String,
+  quantity: Number,
+  size: String,
+  image: String
+}, { _id: false })
 
 
-const Product = productCon.model('Product', products);
+const Product = mongoose.model('Product', products);
 
 
 module.exports.Product = Product;

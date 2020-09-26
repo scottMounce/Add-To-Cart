@@ -1,20 +1,24 @@
 const express = require('express');
 const app = express();
 const port = 3003;
+
+// db model
 const {Product} = require('./Database/productsDB.js');
-const {CartItem} = require('./Database/cartDB.js');
-
+// middleware
 app.use(express.json());
-
 app.use(express.static(__dirname + '/../Dist'))
 
-app.get('/', (req, res) => {
-  res.send('Hello from get');
+// fetch all items in db
+app.get('/products', (req, res) => {
+  Product.find({}).then(result => res.send(result));
 })
 
-app.post('/', (req, res) => {
-  res.send('Hello from post');
+// fetch specific item by id
+app.get('/products/:id', (req, res) => {
+  var id = req.params.id;
+  Product.findById(id).then(response => res.send(response));
 })
+
 
 app.listen(port, () => {
   `server is listening on: ${port}`
