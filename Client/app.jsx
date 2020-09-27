@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Button from './components/select.jsx';
+
 
 class App extends React.Component {
   constructor(props){
@@ -17,6 +21,7 @@ class App extends React.Component {
         <p className="sales">{this.state.sales} sales   <span className='salesDivider'>|</span> *****</p>
         <h6 className="title">{this.state.title}</h6>
         <p className="price">${this.state.price} <span className="stock">In stock</span></p>
+        <Button label="click me please!"></Button>
         <label className="selectTitle">Size
         <br/>
         <select className="select">
