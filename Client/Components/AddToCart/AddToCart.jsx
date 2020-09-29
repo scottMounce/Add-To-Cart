@@ -16,6 +16,7 @@ class AddToCart extends React.Component {
   render() {
     return (
       <div className="container">
+
         <h4>{this.state.store}</h4>
         <p className="storeTotals">
           {this.state.sales} sales <span className="divider">|</span> *****
@@ -24,6 +25,9 @@ class AddToCart extends React.Component {
         <p className="price">
           ${this.state.price}<span>In stock</span>
         </p>
+
+
+
         <label>
           Size
           <br />
@@ -42,7 +46,12 @@ class AddToCart extends React.Component {
             <option>4</option>
           </select>
         </label>
+
+
+
         <button className="addButton">Add to cart</button>
+
+
         <div className="promos">
           <img src="https://www.flaticon.com/svg/static/icons/svg/711/711192.svg" />
           <p>
@@ -57,6 +66,8 @@ class AddToCart extends React.Component {
             spend $35+ at this shop.
           </p>
         </div>
+
+
       </div>
     );
   }
