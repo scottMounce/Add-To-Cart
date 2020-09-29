@@ -1,0 +1,111 @@
+.container {
+  width: 27%;
+  max-height: 100%;
+  margin: 1rem;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
+div h4 {
+  letter-spacing: 0.5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  line-height: 0.5;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.storeTotals {
+  margin: 0 0 10px 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.divider {
+  opacity: 10%;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+}
+
+div h6 {
+  max-width: 94%;
+  margin: 0;
+  margin-top: 5px;
+  font-size: 1.4rem;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 100;
+  opacity: 85%;
+}
+
+.price {
+  margin: 0;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  line-height: 25px;
+  font-size: 1.5rem;
+}
+
+.price span {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.container label {
+  margin-top: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+
+.container label select {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.5rem 0 0.5rem 0;
+  box-shadow: 0 1px 6px 0 rgba(34, 34, 34, 0.15);
+  border-radius: 5px;
+  border: lightgray solid 0.1px;
+  -webkit-appearance: none;
+  background-image: url('https://www.flaticon.com/svg/static/icons/svg/60/60995.svg');
+  background-repeat: no-repeat;
+  background-size: 0.5rem;
+  background-position: right 10px top 50%;
+}
+
+.addButton {
+  color: white;
+  margin: auto;
+  margin-top: 0.5rem;
+  width: 100%;
+  background-color: #222222;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 25px;
+  border: none;
+  font-size: 1rem;
+}
+
+.promos {
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  padding-top: 0.7rem;
+}
+
+.promos strong {
+  font-weight: 400;
+}
+
+.promos img {
+  width: 2rem;
+  height: 2rem;
+  padding-right: 10px;
+  padding-top: 3px;
+}
