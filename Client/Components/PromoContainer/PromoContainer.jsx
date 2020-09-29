@@ -7,7 +7,7 @@ const PromoContainer = (props) => {
     <div className="promoContainer">
 
       <div className="promoTitle">
-        <h4>Buy Together, get free shipping</h4>
+        <h4>Buy together, get free shipping</h4>
       </div>
 
       <div className="itemInfoContainer">
