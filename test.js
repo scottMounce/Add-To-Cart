@@ -58,7 +58,7 @@ describe('Promo Component', () => {
     await page.goto(pageUrl, {waitUntil: 'networkidle2'});
   });
 
-  test('promo title', async () => {
+  test('check to promo title is correct', async () => {
     var div = '.promoTitle';
     const title = await page.$eval(div, e => e.innerText);
     expect(title).toEqual('Buy together, get free shipping');
@@ -70,7 +70,7 @@ describe('Promo Component', () => {
     expect(image).toBe(true);
   })
 
-  test('promo button', async () => {
+  test('check if promo button exists', async () => {
     var div = '.promoContainer';
     const button = await page.$eval(div, e => e.innerHTML.includes('<button>'));
     expect(button).toBe(true);
