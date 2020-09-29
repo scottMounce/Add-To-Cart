@@ -1,5 +1,5 @@
 .container {
-  max-width: 78%;
+  width: 27%;
   max-height: 100%;
   margin: 1rem;
   display: flex;
@@ -11,15 +11,15 @@ div h4 {
   letter-spacing: 0.5px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  line-height: 0;
-  font-size: 0.8rem;
+  line-height: 0.5;
+  font-size: 1rem;
   margin-bottom: 12px;
 }
 
 .storeTotals {
   margin: 0 0 10px 0;
   font-family: 'Roboto', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 300;
 }
 
@@ -32,7 +32,8 @@ div h4 {
 div h6 {
   max-width: 94%;
   margin: 0;
-  font-size: 1.2rem;
+  margin-top: 5px;
+  font-size: 1.4rem;
   font-family: 'Noto Serif JP', serif;
   font-weight: 100;
   opacity: 85%;
@@ -50,20 +51,21 @@ div h6 {
 }
 
 .price span {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 400;
 }
 
 .container label {
+  margin-top: 5px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 
 .container label select {
   width: 100%;
-  padding: 0.7rem;
+  padding: 1rem;
   margin: 0.5rem 0 0.5rem 0;
   box-shadow: 0 1px 6px 0 rgba(34, 34, 34, 0.15);
   border-radius: 5px;
@@ -83,16 +85,17 @@ div h6 {
   background-color: #222222;
   display: flex;
   justify-content: center;
-  padding: 0.8rem 0 0.8rem 0;
+  padding: 1rem;
   border-radius: 25px;
   border: none;
+  font-size: 1rem;
 }
 
 .promos {
   display: flex;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   padding-top: 0.7rem;
 }
 
