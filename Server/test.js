@@ -32,10 +32,19 @@ describe('Querying all db info', () => {
 // test to see if query by id works
 describe('Querying single files by id', () => {
 
-  test('response.data should be the length of 1', () => {
+  test('response.data should be an object', () => {
     return axios.get('http://localhost:3003/products/45')
     .then(response => {
       return expect(typeof response.data).toBe('object')})
+    .catch(err => {
+      throw err
+    })
+  })
+
+  test('response.data to have the same id as the one in the url', () => {
+    return axios.get('http://localhost:3003/products/50')
+    .then(response => {
+      return expect(response.data._id).toBe(50)})
     .catch(err => {
       throw err
     })
