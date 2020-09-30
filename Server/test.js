@@ -4,7 +4,7 @@ describe('Sanity Check', () => {
 // sanity check to help debug
   test('sanity', () => expect(true).toEqual(true));
 
-// another sanity check that is should always be passing
+// another sanity check that should always be passing
   test('test route', () => {
    return axios.get('http://localhost:3003/test')
     .then(response => {
