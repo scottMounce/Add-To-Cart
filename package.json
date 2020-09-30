@@ -4,8 +4,8 @@
   "description": "Add-To-Cart component for etsy",
   "main": "index.js",
   "scripts": {
-    "testFrontEnd": "jest ./Client/test,js",
-    "testBackEnd": "jest ./Server/test.js",
+    "frontEndTest": "jest ./Client/test.js",
+    "backEndTest": "jest ./Server/test.js --env=node",
     "start": "nodemon Server/index.js",
     "build": "webpack --config webpack.config.js -d --watch",
     "seed": "node ./Server/Database/dbscript.js"
