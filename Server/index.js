@@ -19,6 +19,9 @@ app.get('/products/:id', (req, res) => {
   Product.findById(id).then(response => res.send(response));
 })
 
+app.get('/test', (req, res) => {
+  res.send({"message": "pass!"})
+})
 
 app.listen(port, () => {
   `server is listening on: ${port}`
