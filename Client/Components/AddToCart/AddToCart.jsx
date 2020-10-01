@@ -2,6 +2,7 @@ import React from 'react';
 import './AddToCart.css';
 import ProductInfo from './subComponents/productInfo/productInfo.jsx';
 import Select from './subComponents/select/select.jsx';
+import Promo from './subComponents/promo/promo.jsx';
 
 
 class AddToCart extends React.Component {
@@ -97,25 +98,12 @@ class AddToCart extends React.Component {
         quantity={this.state.quantity}
         />
 
+      <button
+      className="addButton">
+      Add to cart
+      </button>
 
-
-        <button className="addButton">Add to cart</button>
-
-        {/* move to the promo component and the css aswell */}
-        <div className="promos">
-          <img src="https://www.flaticon.com/svg/static/icons/svg/711/711192.svg" />
-          <p>
-            <strong>Other people want this.</strong> Over 20 people have this in
-            their carts right now.
-          </p>
-        </div>
-        <div className="promos">
-          <img src="https://www.flaticon.com/svg/static/icons/svg/565/565391.svg" />
-          <p>
-            <strong>Nice choice!</strong> Enjoy free shipping to the US when you
-            spend $35+ at this shop.
-          </p>
-        </div>
+       <Promo />
 
 
       </div>
