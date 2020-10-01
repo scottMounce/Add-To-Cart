@@ -1,6 +1,7 @@
 import React from 'react';
 import './AddToCart.css';
 import ProductInfo from './subComponents/productInfo/productInfo.jsx';
+import Select from './subComponents/select/select.jsx';
 
 
 class AddToCart extends React.Component {
@@ -13,17 +14,10 @@ class AddToCart extends React.Component {
       price: "20.00",
       quantity: [1,2,3],
       sizes: [],
-      keyCounter: -1,
     };
   }
 
   //// UTILITIES
-
-  //creates keys
-  keyGenerator() {
-    this.state.keyCounter++;
-    return this.state.keyCounter;
-  }
 
   // turns quantity from a number to an array
   quantityGenerator(number) {
@@ -97,23 +91,11 @@ class AddToCart extends React.Component {
         price={this.state.price}
         />
 
-
-        {/* create a select component named select*/}
-        <label>
-          Size
-          <br />
-          <select>
-            <option>Select Size</option>
-            {this.state.sizes.map(size => <option onClick={this.sizeSwitcher.bind(this)} key={this.keyGenerator()}>{size}</option>)}
-          </select>
-        </label>
-        <label>
-          Quantity
-          <br />
-          <select>
-            {this.state.quantity.map(number => <option key={this.keyGenerator()}>{number}</option>)}
-          </select>
-        </label>
+        <Select
+        sizes={this.state.sizes}
+        sizeSwitcher={this.sizeSwitcher}
+        quantity={this.state.quantity}
+        />
 
 
 

@@ -7,27 +7,6 @@
   flex-direction: column;
 }
 
-.container label {
-  margin-top: 5px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 0.8rem;
-}
-
-
-.container label select {
-  width: 100%;
-  padding: 1rem;
-  margin: 0.5rem 0 0.5rem 0;
-  box-shadow: 0 1px 6px 0 rgba(34, 34, 34, 0.15);
-  border-radius: 5px;
-  border: lightgray solid 0.1px;
-  -webkit-appearance: none;
-  background-image: url('https://www.flaticon.com/svg/static/icons/svg/60/60995.svg');
-  background-repeat: no-repeat;
-  background-size: 0.5rem;
-  background-position: right 10px top 50%;
-}
 
 .addButton {
   color: white;
