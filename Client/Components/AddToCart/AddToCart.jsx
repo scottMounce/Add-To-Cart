@@ -1,6 +1,6 @@
 import React from 'react';
 import './AddToCart.css';
-
+import ProductInfo from './subComponents/productInfo/productInfo.jsx';
 
 
 class AddToCart extends React.Component {
@@ -90,15 +90,12 @@ class AddToCart extends React.Component {
     return (
       <div className="container">
 
-        {/* create a seperate component named productInfo*/}
-        <h4>{this.state.store}</h4>
-        <p className="storeTotals">
-          {this.state.sales} sales <span className="divider">|</span> *****
-        </p>
-        <h6>{this.state.title}</h6>
-        <p className="price">
-          ${this.state.price}<span>In stock</span>
-        </p>
+        <ProductInfo
+        store={this.state.sales}
+        sales={this.state.sales}
+        title={this.state.title}
+        price={this.state.price}
+        />
 
 
         {/* create a select component named select*/}
