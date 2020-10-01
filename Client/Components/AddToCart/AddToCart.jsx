@@ -16,16 +16,16 @@ class AddToCart extends React.Component {
     };
   }
 
-
-
   //// UTILITIES
   keyGenerator(){
     this.state.keyCounter++;
     return this.state.keyCounter;
   }
 
+
   componentDidMount(){
-    fetch('http://localhost:3003/products/50')
+    // updates the state depending on the specific id passed
+    fetch('http://localhost:3003/products/76')
     .then(response => response.json())
     .then(result => this.setState({
       store: result.store,
@@ -36,6 +36,7 @@ class AddToCart extends React.Component {
     }))
     .catch(err => console.error(err))
     .then(() =>
+    //checks if there is any other sizes by comparing titles
       fetch('http://localhost:3003/products/')
       .then(response => response.json())
       .then(result => result.map(product => {
