@@ -15,6 +15,7 @@ class AddToCart extends React.Component {
       price: "20.00",
       quantity: [1,2,3],
       sizes: [],
+      storeReview: 0,
     };
   }
 
@@ -47,19 +48,17 @@ class AddToCart extends React.Component {
     }))
   }
 
-
-
-
   componentDidMount(){
     // updates the state depending on the specific id passed
-    fetch('http://localhost:3003/products/10')
+    fetch('http://localhost:3003/products/14')
     .then(response => response.json())
     .then(result => this.setState({
       store: result.store,
       sales: result.sales,
       title: result.title,
       price: result.price,
-      quantity: this.quantityGenerator(result.quantity)
+      quantity: this.quantityGenerator(result.quantity),
+      storeReview: result.storeReview
     }))
     .catch(err => console.error(err))
     .then(() =>
@@ -79,14 +78,12 @@ class AddToCart extends React.Component {
     .catch(err => console.error(err))
   }
 
-
-
   render() {
     return (
       <div className="container">
 
         <ProductInfo
-        store={this.state.sales}
+        store={this.state.store}
         sales={this.state.sales}
         title={this.state.title}
         price={this.state.price}
@@ -98,14 +95,14 @@ class AddToCart extends React.Component {
         quantity={this.state.quantity}
         />
 
-      <button
-      className="addButton">
-      Add to cart
-      </button>
+        <button
+        className="addButton">
+        Add to cart
+        </button>
 
-       <Promo />
+        <Promo />
 
-       <PromoContainer />
+        <PromoContainer />
 
 
       </div>

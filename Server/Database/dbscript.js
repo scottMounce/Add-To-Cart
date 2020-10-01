@@ -14,9 +14,10 @@ var addInfo = () => {
       "sales": faker.random.number(),
       "title": faker.name.findName(),
       "price": faker.commerce.price(),
-      "quantity": faker.random.number(),
+      "quantity": Math.random() * 15,
       "size": sizes[Math.floor(Math.random() * 5)],
-      "image": faker.image.imageUrl()
+      "image": faker.image.imageUrl(),
+      "storeReviews": Math.random() * 5,
     }
     id++;
     count--;

@@ -12,7 +12,8 @@ const products = mongoose.Schema({
   price: String,
   quantity: Number,
   size: String,
-  image: String
+  image: String,
+  storeReviews: Number,
 }, { _id: false })
 
 
