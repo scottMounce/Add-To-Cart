@@ -3,7 +3,7 @@ import './AddToCart.css';
 import ProductInfo from './subComponents/productInfo/productInfo.jsx';
 import Select from './subComponents/select/select.jsx';
 import Promo from './subComponents/promo/promo.jsx';
-
+import PromoContainer from './subComponents/additionalPromos/PromoContainer.jsx';
 
 class AddToCart extends React.Component {
   constructor(props) {
@@ -104,6 +104,8 @@ class AddToCart extends React.Component {
       </button>
 
        <Promo />
+
+       <PromoContainer />
 
 
       </div>
