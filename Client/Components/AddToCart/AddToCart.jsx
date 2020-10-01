@@ -2,6 +2,7 @@ import React from 'react';
 import './AddToCart.css';
 
 
+
 class AddToCart extends React.Component {
   constructor(props) {
     super(props);
@@ -10,29 +11,60 @@ class AddToCart extends React.Component {
       sales: "1,386",
       title: "Pumpkin pie cat and small pet hat felt costume",
       price: "20.00",
-      quantity: 10,
+      quantity: [1,2,3],
       sizes: [],
       keyCounter: -1,
     };
   }
 
   //// UTILITIES
-  keyGenerator(){
+
+  //creates keys
+  keyGenerator() {
     this.state.keyCounter++;
     return this.state.keyCounter;
   }
 
+  // turns quantity from a number to an array
+  quantityGenerator(number) {
+    var newQuantity = []
+    if(number < 10){
+      for(let i = 0; i < number; i++){
+        newQuantity.push(i);
+      }
+    } else {
+      newQuantity = [1,2,3,4,5,6,7,8,9,10];
+    }
+   return newQuantity;
+  }
+
+  // onClick changes the price depending on the size
+
+  sizeSwitcher(e) {
+    fetch('http://localhost:3003/products/')
+    .then(response => response.json())
+    .then(result => result.map(item => {
+      if(this.state.title === item.title && item.size === e.target.value.substring(0,1)){
+        this.setState({
+          price: item.price
+        })
+      }
+    }))
+  }
+
+
+
 
   componentDidMount(){
     // updates the state depending on the specific id passed
-    fetch('http://localhost:3003/products/76')
+    fetch('http://localhost:3003/products/10')
     .then(response => response.json())
     .then(result => this.setState({
       store: result.store,
       sales: result.sales,
       title: result.title,
       price: result.price,
-      quantity: new Array(result.quantity)
+      quantity: this.quantityGenerator(result.quantity)
     }))
     .catch(err => console.error(err))
     .then(() =>
@@ -45,17 +77,20 @@ class AddToCart extends React.Component {
         newSizes.push(product.size);
         this.setState({
           sizes: newSizes
-        })
+          })
         }}
       ))
     )
     .catch(err => console.error(err))
   }
 
+
+
   render() {
     return (
       <div className="container">
 
+        {/* create a seperate component named productInfo*/}
         <h4>{this.state.store}</h4>
         <p className="storeTotals">
           {this.state.sales} sales <span className="divider">|</span> *****
@@ -66,22 +101,20 @@ class AddToCart extends React.Component {
         </p>
 
 
-
+        {/* create a select component named select*/}
         <label>
           Size
           <br />
           <select>
-          {this.state.sizes.map(size => <option key={this.keyGenerator()}>{size}</option>)}
+            <option>Select Size</option>
+            {this.state.sizes.map(size => <option onClick={this.sizeSwitcher.bind(this)} key={this.keyGenerator()}>{size}</option>)}
           </select>
         </label>
         <label>
           Quantity
           <br />
           <select>
-           <option>1</option>
-           <option>2</option>
-           <option>3</option>
-           <option>4</option>
+            {this.state.quantity.map(number => <option key={this.keyGenerator()}>{number}</option>)}
           </select>
         </label>
 
@@ -89,7 +122,7 @@ class AddToCart extends React.Component {
 
         <button className="addButton">Add to cart</button>
 
-
+        {/* move to the promo component and the css aswell */}
         <div className="promos">
           <img src="https://www.flaticon.com/svg/static/icons/svg/711/711192.svg" />
           <p>
