@@ -10,7 +10,45 @@ class AddToCart extends React.Component {
       sales: "1,386",
       title: "Pumpkin pie cat and small pet hat felt costume",
       price: "20.00",
+      quantity: 10,
+      sizes: [],
+      keyCounter: -1,
     };
+  }
+
+
+
+  //// UTILITIES
+  keyGenerator(){
+    this.state.keyCounter++;
+    return this.state.keyCounter;
+  }
+
+  componentDidMount(){
+    fetch('http://localhost:3003/products/50')
+    .then(response => response.json())
+    .then(result => this.setState({
+      store: result.store,
+      sales: result.sales,
+      title: result.title,
+      price: result.price,
+      quantity: new Array(result.quantity)
+    }))
+    .catch(err => console.error(err))
+    .then(() =>
+      fetch('http://localhost:3003/products/')
+      .then(response => response.json())
+      .then(result => result.map(product => {
+        if(product.title === this.state.title) {
+        var newSizes = [];
+        newSizes.push(product.size);
+        this.setState({
+          sizes: newSizes
+        })
+        }}
+      ))
+    )
+    .catch(err => console.error(err))
   }
 
   render() {
@@ -32,18 +70,17 @@ class AddToCart extends React.Component {
           Size
           <br />
           <select>
-            <option>S</option>
-            <option>M</option>
+          {this.state.sizes.map(size => <option key={this.keyGenerator()}>{size}</option>)}
           </select>
         </label>
         <label>
           Quantity
           <br />
           <select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
+           <option>1</option>
+           <option>2</option>
+           <option>3</option>
+           <option>4</option>
           </select>
         </label>
 
