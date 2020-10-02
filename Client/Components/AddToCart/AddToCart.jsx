@@ -15,17 +15,21 @@ class AddToCart extends React.Component {
       price: "20.00",
       quantity: [1,2,3],
       sizes: [],
-      storeReview: 0,
+      storeReviews: 0,
     };
   }
 
   //// UTILITIES
 
+  // adds commas to a number
+  numberWithCommas(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
   // turns quantity from a number to an array
   quantityGenerator(number) {
     var newQuantity = []
     if(number < 10){
-      for(let i = 0; i < number; i++){
+      for(let i = 1; i <= number; i++){
         newQuantity.push(i);
       }
     } else {
@@ -50,15 +54,15 @@ class AddToCart extends React.Component {
 
   componentDidMount(){
     // updates the state depending on the specific id passed
-    fetch('http://localhost:3003/products/14')
+    fetch('http://localhost:3003/products/3')
     .then(response => response.json())
     .then(result => this.setState({
       store: result.store,
-      sales: result.sales,
+      sales: this.numberWithCommas(result.sales),
       title: result.title,
       price: result.price,
       quantity: this.quantityGenerator(result.quantity),
-      storeReview: result.storeReview
+      storeReviews: result.storeReviews
     }))
     .catch(err => console.error(err))
     .then(() =>
@@ -83,10 +87,12 @@ class AddToCart extends React.Component {
       <div className="container">
 
         <ProductInfo
+        storeReviews={this.state.storeReviews}
         store={this.state.store}
         sales={this.state.sales}
         title={this.state.title}
         price={this.state.price}
+        quantity={this.state.quantity}
         />
 
         <Select

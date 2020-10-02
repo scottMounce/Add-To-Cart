@@ -21,11 +21,16 @@
   },
   "homepage": "https://github.com/HRR48-FEC-SquawkinPhoenix/Add-To-Cart#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.31",
+    "@fortawesome/free-regular-svg-icons": "^5.15.0",
+    "@fortawesome/free-solid-svg-icons": "^5.15.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "express": "^4.17.1",
     "mongo": "^0.1.0",
     "mongoose": "^5.10.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-rating": "^2.0.5",
     "react-test-render": "^1.1.2",
     "react-test-renderer": "^16.13.1"
   },
