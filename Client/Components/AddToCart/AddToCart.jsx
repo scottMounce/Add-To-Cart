@@ -21,6 +21,10 @@ class AddToCart extends React.Component {
 
   //// UTILITIES
 
+  // adds commas to a number
+  numberWithCommas(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
   // turns quantity from a number to an array
   quantityGenerator(number) {
     var newQuantity = []
@@ -50,11 +54,11 @@ class AddToCart extends React.Component {
 
   componentDidMount(){
     // updates the state depending on the specific id passed
-    fetch('http://localhost:3003/products/6')
+    fetch('http://localhost:3003/products/9')
     .then(response => response.json())
     .then(result => this.setState({
       store: result.store,
-      sales: result.sales,
+      sales: this.numberWithCommas(result.sales),
       title: result.title,
       price: result.price,
       quantity: this.quantityGenerator(result.quantity),
