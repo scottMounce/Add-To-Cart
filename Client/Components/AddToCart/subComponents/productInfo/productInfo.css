@@ -1,0 +1,52 @@
+div h4 {
+  letter-spacing: 0.5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  line-height: 0.5;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+
+.storeTotals {
+  margin: 0 0 10px 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+
+.divider {
+  opacity: 10%;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+}
+
+
+div h6 {
+  max-width: 94%;
+  margin: 0;
+  margin-top: 5px;
+  font-size: 1.4rem;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 100;
+  opacity: 85%;
+}
+
+.price {
+  margin: 0;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  line-height: 25px;
+  font-size: 1.5rem;
+}
+
+
+
+.price span {
+  font-size: 0.8rem;
+  font-weight: 400;
+}

@@ -1,7 +1,9 @@
 import React from 'react';
 import './AddToCart.css';
-
-
+import ProductInfo from './subComponents/productInfo/productInfo.jsx';
+import Select from './subComponents/select/select.jsx';
+import Promo from './subComponents/promo/promo.jsx';
+import PromoContainer from './subComponents/additionalPromos/PromoContainer.jsx';
 
 class AddToCart extends React.Component {
   constructor(props) {
@@ -13,17 +15,11 @@ class AddToCart extends React.Component {
       price: "20.00",
       quantity: [1,2,3],
       sizes: [],
-      keyCounter: -1,
+      storeReview: 0,
     };
   }
 
   //// UTILITIES
-
-  //creates keys
-  keyGenerator() {
-    this.state.keyCounter++;
-    return this.state.keyCounter;
-  }
 
   // turns quantity from a number to an array
   quantityGenerator(number) {
@@ -52,19 +48,17 @@ class AddToCart extends React.Component {
     }))
   }
 
-
-
-
   componentDidMount(){
     // updates the state depending on the specific id passed
-    fetch('http://localhost:3003/products/10')
+    fetch('http://localhost:3003/products/14')
     .then(response => response.json())
     .then(result => this.setState({
       store: result.store,
       sales: result.sales,
       title: result.title,
       price: result.price,
-      quantity: this.quantityGenerator(result.quantity)
+      quantity: this.quantityGenerator(result.quantity),
+      storeReview: result.storeReview
     }))
     .catch(err => console.error(err))
     .then(() =>
@@ -84,59 +78,31 @@ class AddToCart extends React.Component {
     .catch(err => console.error(err))
   }
 
-
-
   render() {
     return (
       <div className="container">
 
-        {/* create a seperate component named productInfo*/}
-        <h4>{this.state.store}</h4>
-        <p className="storeTotals">
-          {this.state.sales} sales <span className="divider">|</span> *****
-        </p>
-        <h6>{this.state.title}</h6>
-        <p className="price">
-          ${this.state.price}<span>In stock</span>
-        </p>
+        <ProductInfo
+        store={this.state.store}
+        sales={this.state.sales}
+        title={this.state.title}
+        price={this.state.price}
+        />
 
+        <Select
+        sizes={this.state.sizes}
+        sizeSwitcher={this.sizeSwitcher}
+        quantity={this.state.quantity}
+        />
 
-        {/* create a select component named select*/}
-        <label>
-          Size
-          <br />
-          <select>
-            <option>Select Size</option>
-            {this.state.sizes.map(size => <option onClick={this.sizeSwitcher.bind(this)} key={this.keyGenerator()}>{size}</option>)}
-          </select>
-        </label>
-        <label>
-          Quantity
-          <br />
-          <select>
-            {this.state.quantity.map(number => <option key={this.keyGenerator()}>{number}</option>)}
-          </select>
-        </label>
+        <button
+        className="addButton">
+        Add to cart
+        </button>
 
+        <Promo />
 
-
-        <button className="addButton">Add to cart</button>
-
-        {/* move to the promo component and the css aswell */}
-        <div className="promos">
-          <img src="https://www.flaticon.com/svg/static/icons/svg/711/711192.svg" />
-          <p>
-            <strong>Other people want this.</strong> Over 20 people have this in
-            their carts right now.
-          </p>
-        </div>
-        <div className="promos">
-          <img src="https://www.flaticon.com/svg/static/icons/svg/565/565391.svg" />
-          <p>
-            <strong>Nice choice!</strong> Enjoy free shipping to the US when you
-            spend $35+ at this shop.
-          </p>
-        </div>
+        <PromoContainer />
 
 
       </div>
