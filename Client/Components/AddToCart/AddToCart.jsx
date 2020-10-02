@@ -15,7 +15,7 @@ class AddToCart extends React.Component {
       price: "20.00",
       quantity: [1,2,3],
       sizes: [],
-      storeReview: 0,
+      storeReviews: 0,
     };
   }
 
@@ -50,7 +50,7 @@ class AddToCart extends React.Component {
 
   componentDidMount(){
     // updates the state depending on the specific id passed
-    fetch('http://localhost:3003/products/14')
+    fetch('http://localhost:3003/products/20')
     .then(response => response.json())
     .then(result => this.setState({
       store: result.store,
@@ -58,7 +58,7 @@ class AddToCart extends React.Component {
       title: result.title,
       price: result.price,
       quantity: this.quantityGenerator(result.quantity),
-      storeReview: result.storeReview
+      storeReviews: result.storeReviews
     }))
     .catch(err => console.error(err))
     .then(() =>
@@ -83,6 +83,7 @@ class AddToCart extends React.Component {
       <div className="container">
 
         <ProductInfo
+        storeReviews={this.state.storeReviews}
         store={this.state.store}
         sales={this.state.sales}
         title={this.state.title}

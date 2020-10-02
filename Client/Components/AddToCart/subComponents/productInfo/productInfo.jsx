@@ -2,7 +2,8 @@ import React from 'react';
 import './productInfo.css';
 
 
-var ProductInfo = ({store, sales, title, price}) => {
+var ProductInfo = ({storeReviews, store, sales, title, price}) => {
+  console.log(storeReviews)
   return (
     <div>
       <h4>{store}</h4>
