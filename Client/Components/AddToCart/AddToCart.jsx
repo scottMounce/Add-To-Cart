@@ -25,7 +25,7 @@ class AddToCart extends React.Component {
   quantityGenerator(number) {
     var newQuantity = []
     if(number < 10){
-      for(let i = 0; i < number; i++){
+      for(let i = 1; i <= number; i++){
         newQuantity.push(i);
       }
     } else {
@@ -50,7 +50,7 @@ class AddToCart extends React.Component {
 
   componentDidMount(){
     // updates the state depending on the specific id passed
-    fetch('http://localhost:3003/products/10')
+    fetch('http://localhost:3003/products/6')
     .then(response => response.json())
     .then(result => this.setState({
       store: result.store,

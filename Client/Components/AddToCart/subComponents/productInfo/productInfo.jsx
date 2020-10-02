@@ -11,6 +11,9 @@ var ProductInfo = ({quantity, storeReviews, store, sales, title, price}) => {
   var icon = '';
   if(quantity.length > 0) {
   var icon = <FontAwesomeIcon icon={faCheck} />
+  var inStock = 'In stock';
+  } else {
+    var inStock = 'Out of stock!'
   }
   return (
     <div>
@@ -26,7 +29,7 @@ var ProductInfo = ({quantity, storeReviews, store, sales, title, price}) => {
       </p>
       <h6>{title}</h6>
       <p className="price">
-        ${price}<span>{icon} In stock</span>
+        ${price}<span>{icon} {inStock}</span>
       </p>
     </div>
   )
