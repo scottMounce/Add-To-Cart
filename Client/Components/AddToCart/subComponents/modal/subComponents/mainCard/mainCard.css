@@ -18,10 +18,16 @@
   flex-direction: column;
 }
 
+.mainInfo h4 {
+  margin: 0 1rem;
+  padding: 0.5rem;
+}
+
 .mainInfo button {
   color: white;
   margin: auto;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.7rem;
   width: 100%;
   background-color: #222222;
   display: flex;
@@ -33,16 +39,22 @@
 }
 
 .modalDeal {
-  text-align: center;
   font-size: 1rem;
 }
 
 .loading {
+  border-radius: 25px;
   margin-top: 1rem;
   background: grey;
   height: 10px;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-content: center;
+}
+
+.innerLoading {
+  border-radius: 25px;
+  background: green;
+  height: 10px;
+  width: 65%;
+
 }
