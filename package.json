@@ -30,6 +30,7 @@
     "mongoose": "^5.10.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-modal": "^3.11.2",
     "react-rating": "^2.0.5",
     "react-test-render": "^1.1.2",
     "react-test-renderer": "^16.13.1"
