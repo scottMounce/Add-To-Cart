@@ -1,0 +1,32 @@
+.Modal {
+  box-shadow: 0 6px 36px rgba(34, 34, 34, 0.325);
+  background: #FFF;
+  border-radius: 24px;
+  position: relative;
+  top: 18%;
+  margin: auto;
+  max-width: 580px;
+  max-height: 580px;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  padding: 1.5rem;
+}
+
+.confirmation {
+  margin-top: 0;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(54, 54, 54, 0.3);
+}
+
+.cards {
+  display: flex;
+  justify-content: space-evenly;
+}

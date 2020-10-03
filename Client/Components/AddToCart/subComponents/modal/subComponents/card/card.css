@@ -1,0 +1,12 @@
+.card {
+  padding: 1rem;
+}
+
+.card h6 {
+  font-size: 1rem !important;
+}
+
+.card img {
+  max-width: 100px;
+  max-height: 100px;
+}

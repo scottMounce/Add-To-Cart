@@ -4,6 +4,7 @@ import ProductInfo from './subComponents/productInfo/productInfo.jsx';
 import Select from './subComponents/select/select.jsx';
 import Promo from './subComponents/promo/promo.jsx';
 import PromoContainer from './subComponents/additionalPromos/PromoContainer.jsx';
+import PromoModal from './subComponents/modal/modal.jsx';
 
 class AddToCart extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class AddToCart extends React.Component {
       promoVisible: true,
       modalVisible: false,
       storeReviews: 0,
+      image: ""
     };
   }
 
@@ -26,7 +28,7 @@ class AddToCart extends React.Component {
   // onClick change visible state of the promo container
   changeVisible(e) {
     this.setState({
-      promVisible: false
+      promoVisible: false
     })
   }
 
@@ -71,6 +73,7 @@ class AddToCart extends React.Component {
       sales: this.numberWithCommas(result.sales),
       title: result.title,
       price: result.price,
+      image: result.image,
       quantity: this.quantityGenerator(result.quantity),
       storeReviews: result.storeReviews
     }))
@@ -105,6 +108,12 @@ class AddToCart extends React.Component {
         quantity={this.state.quantity}
         />
 
+        <PromoModal
+        image={this.state.image}
+        price={this.state.price}
+        title={this.state.title}
+        />
+
         <Select
         sizes={this.state.sizes}
         sizeSwitcher={this.sizeSwitcher}
@@ -119,7 +128,7 @@ class AddToCart extends React.Component {
 
         <Promo />
 
-        {this.state.visible? <PromoContainer /> : '' }
+        {this.state.promoVisible? <PromoContainer /> : '' }
 
 
       </div>
