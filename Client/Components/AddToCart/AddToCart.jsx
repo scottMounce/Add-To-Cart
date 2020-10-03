@@ -15,11 +15,21 @@ class AddToCart extends React.Component {
       price: "20.00",
       quantity: [1,2,3],
       sizes: [],
+      promoVisible: true,
+      modalVisible: false,
       storeReviews: 0,
     };
   }
 
   //// UTILITIES
+
+  // onClick change visible state of the promo container
+  changeVisible(e) {
+    this.setState({
+      promVisible: false
+    })
+  }
+
 
   // adds commas to a number
   numberWithCommas(num) {
@@ -102,13 +112,14 @@ class AddToCart extends React.Component {
         />
 
         <button
+        onClick={this.changeVisible.bind(this)}
         className="addButton">
         Add to cart
         </button>
 
         <Promo />
 
-        <PromoContainer />
+        {this.state.visible? <PromoContainer /> : '' }
 
 
       </div>
