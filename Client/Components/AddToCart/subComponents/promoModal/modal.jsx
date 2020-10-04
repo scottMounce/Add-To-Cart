@@ -3,6 +3,8 @@ import Modal from 'react-modal';
 import './modal.css';
 import MainCard from './subComponents/mainCard/mainCard.jsx';
 import Card from './subComponents/card/card.jsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 class PromoModal extends React.Component {
   constructor(props){
@@ -45,8 +47,8 @@ class PromoModal extends React.Component {
         overlayClassName="Overlay"
       >
         <div>
-          <h2 className="confirmation">Added to cart</h2>
-          <MainCard  image={this.props.image} title={this.props.title} price={this.props.price} />
+          <h2 className="confirmation"><FontAwesomeIcon icon={faCheck} />  Added to cart</h2>
+          <MainCard closeModal={this.closeModal.bind(this)} image={this.props.image} title={this.props.title} price={this.props.price} />
           <div className="cards">
             {this.props.firstRowModalItems.map( item => <Card image={item.image} key={this.props.keyGenerator()} title={item.title} price={item.price} /> )}
           </div>
@@ -54,7 +56,6 @@ class PromoModal extends React.Component {
             {this.props.secondRowModalItems.map( item => <Card image={item.image} key={this.props.keyGenerator()} title={item.title} price={item.price} /> )}
           </div>
         </div>
-        <button onClick={this.closeModal.bind(this)}>close</button>
       </Modal>
     </div>
     )

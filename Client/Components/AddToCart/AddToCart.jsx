@@ -3,7 +3,7 @@ import './AddToCart.css';
 import ProductInfo from './subComponents/productInfo/productInfo.jsx';
 import Select from './subComponents/select/select.jsx';
 import Promo from './subComponents/promo/promo.jsx';
-import PromoContainer from './subComponents/additionalPromos/PromoContainer.jsx';
+import PromoContainer from './subComponents/promoContainer/PromoContainer.jsx';
 import PromoModal from './subComponents/promoModal/modal.jsx';
 
 class AddToCart extends React.Component {
@@ -161,7 +161,7 @@ class AddToCart extends React.Component {
 
         <Promo />
 
-        {this.state.promoVisible? <PromoContainer /> : '' }
+        {this.state.promoVisible? <PromoContainer title={this.state.title} image={this.state.image} price={this.state.price} /> : '' }
 
       </div>
     );
