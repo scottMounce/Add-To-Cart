@@ -14,7 +14,7 @@ const MainCard = ({closeModal, title, price, image}) => {
         </div>
       </div>
       <div className="loading"><span className="innerLoading"></span></div>
-      <h2 className="modalDeal">You are $15.00 away from getting free shipping from this store</h2>
+      <h2 className="modalDeal">You are always $1.00 away from getting free shipping from this store</h2>
       <button onClick={() => closeModal()} className="closeModal">X</button>
     </div>
   )
