@@ -1,6 +1,7 @@
 import React from 'react';
 import './mainCard.css';
 
+
 const MainCard = ({closeModal, title, price, image}) => {
   return (
     <div className="mainCardContainer">
@@ -8,7 +9,7 @@ const MainCard = ({closeModal, title, price, image}) => {
         <img src={image} />
         <div className="mainInfo">
           <h4>{title}</h4>
-          <h4>{price}</h4>
+          <h4>${price}</h4>
           <button>Go to cart</button>
         </div>
       </div>
