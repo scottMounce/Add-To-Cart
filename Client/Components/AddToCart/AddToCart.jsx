@@ -10,14 +10,13 @@ class AddToCart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      store: "Ticketybootique",
-      sales: "1,386",
-      title: "Pumpkin pie cat and small pet hat felt costume",
-      price: "20.00",
+      store: "",
+      sales: "",
+      title: "",
+      price: "",
       quantity: [1,2,3],
       sizes: [],
       promoVisible: true,
-      modalVisible: false,
       storeReviews: 0,
       image: ""
     };
@@ -108,28 +107,23 @@ class AddToCart extends React.Component {
         quantity={this.state.quantity}
         />
 
-        <PromoModal
-        image={this.state.image}
-        price={this.state.price}
-        title={this.state.title}
-        />
-
         <Select
         sizes={this.state.sizes}
         sizeSwitcher={this.sizeSwitcher}
         quantity={this.state.quantity}
         />
 
-        <button
-        onClick={this.changeVisible.bind(this)}
-        className="addButton">
-        Add to cart
-        </button>
+
+        <PromoModal
+        image={this.state.image}
+        price={this.state.price}
+        title={this.state.title}
+        changeVisible={this.changeVisible.bind(this)}
+        />
 
         <Promo />
 
         {this.state.promoVisible? <PromoContainer /> : '' }
-
 
       </div>
     );

@@ -27,7 +27,16 @@ class PromoModal extends React.Component {
   render(){
     return (
       <div>
-      <button onClick={this.openModal.bind(this)}>Open Modal</button>
+      <button
+        onClick={() => {
+          this.props.changeVisible()
+          this.openModal()
+          }
+        }
+        className="addButton"
+      >
+        Add to cart
+      </button>
       <Modal
         ariaHideApp={false}
         isOpen={this.state.modalIsOpen}
