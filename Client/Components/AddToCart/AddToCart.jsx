@@ -4,7 +4,7 @@ import ProductInfo from './subComponents/productInfo/productInfo.jsx';
 import Select from './subComponents/select/select.jsx';
 import Promo from './subComponents/promo/promo.jsx';
 import PromoContainer from './subComponents/additionalPromos/PromoContainer.jsx';
-import PromoModal from './subComponents/modal/modal.jsx';
+import PromoModal from './subComponents/promoModal/modal.jsx';
 
 class AddToCart extends React.Component {
   constructor(props) {
@@ -18,11 +18,20 @@ class AddToCart extends React.Component {
       sizes: [],
       promoVisible: true,
       storeReviews: 0,
-      image: ""
+      image: "",
+      firstRowModalItems: [],
+      secondRowModalItems: [],
+      keyCounter: -1,
     };
   }
 
   //// UTILITIES
+
+  // creates a new key for the components
+  keyGenerator() {
+    this.state.keyCounter++
+    return this.state.keyCounter;
+  }
 
   // onClick change visible state of the promo container
   changeVisible(e) {
@@ -74,23 +83,48 @@ class AddToCart extends React.Component {
       price: result.price,
       image: result.image,
       quantity: this.quantityGenerator(result.quantity),
-      storeReviews: result.storeReviews
+      storeReviews: result.storeReviews,
     }))
     .catch(err => console.error(err))
     .then(() =>
     //checks if there is any other sizes by comparing titles
       fetch('http://localhost:3003/products/')
       .then(response => response.json())
-      .then(result => result.map(product => {
+      .then(result => {
+        var firstRowModalProducts = [];
+        var secondRowModalProducts = [];
+        result.map(product => {
         if(product.title === this.state.title) {
         var newSizes = [];
         newSizes.push(product.size);
         this.setState({
           sizes: newSizes
           })
-        }}
-      ))
-    )
+        }
+          // fills up the first row in the modal
+        if(firstRowModalProducts.length < 4) {
+          firstRowModalProducts.push(product);
+
+          // fills up the second row in the modal
+        } else if(secondRowModalProducts.length < 4) {
+          secondRowModalProducts.push(product);
+        }
+        // sets the state for the modal first row
+        if(firstRowModalProducts.length === 4) {
+          this.setState({
+            firstRowModalItems: firstRowModalProducts
+          })
+        }
+        // sets the state for the modal second row
+        if(secondRowModalProducts.length === 4) {
+          this.setState({
+            secondRowModalItems: secondRowModalProducts
+          })
+        }
+      }
+      )
+    })
+  )
     .catch(err => console.error(err))
   }
 
@@ -108,6 +142,7 @@ class AddToCart extends React.Component {
         />
 
         <Select
+        keyGenerator={this.keyGenerator.bind(this)}
         sizes={this.state.sizes}
         sizeSwitcher={this.sizeSwitcher}
         quantity={this.state.quantity}
@@ -115,6 +150,9 @@ class AddToCart extends React.Component {
 
 
         <PromoModal
+        keyGenerator={this.keyGenerator.bind(this)}
+        firstRowModalItems={this.state.firstRowModalItems}
+        secondRowModalItems={this.state.secondRowModalItems}
         image={this.state.image}
         price={this.state.price}
         title={this.state.title}

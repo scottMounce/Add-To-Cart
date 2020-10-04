@@ -48,16 +48,10 @@ class PromoModal extends React.Component {
           <h2 className="confirmation">Added to cart</h2>
           <MainCard  image={this.props.image} title={this.props.title} price={this.props.price} />
           <div className="cards">
-            <Card image={this.props.image} title={this.props.title} price={this.props.price}   />
-            <Card image={this.props.image} title={this.props.title} price={this.props.price}   />
-            <Card image={this.props.image} title={this.props.title} price={this.props.price}   />
-            <Card image={this.props.image} title={this.props.title} price={this.props.price}   />
+            {this.props.firstRowModalItems.map( item => <Card image={item.image} key={this.props.keyGenerator()} title={item.title} price={item.price} /> )}
           </div>
           <div className="cards">
-            <Card image={this.props.image} title={this.props.title} price={this.props.price}   />
-            <Card image={this.props.image} title={this.props.title} price={this.props.price}   />
-            <Card image={this.props.image} title={this.props.title} price={this.props.price}   />
-            <Card image={this.props.image} title={this.props.title} price={this.props.price}   />
+            {this.props.secondRowModalItems.map( item => <Card image={item.image} key={this.props.keyGenerator()} title={item.title} price={item.price} /> )}
           </div>
         </div>
         <button onClick={this.closeModal.bind(this)}>close</button>

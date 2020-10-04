@@ -45,7 +45,7 @@
 .loading {
   border-radius: 25px;
   margin-top: 1rem;
-  background: grey;
+  background: lightgrey;
   height: 10px;
   width: 100%;
   display: flex;

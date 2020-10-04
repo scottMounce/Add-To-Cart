@@ -1,5 +1,6 @@
 .card {
   margin: 1rem;
+  max-height: 130px;
 }
 
 .card h6 {

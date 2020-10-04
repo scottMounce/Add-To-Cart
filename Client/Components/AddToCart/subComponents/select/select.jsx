@@ -1,14 +1,10 @@
 import React from 'react';
 import './select.css';
 
-var keyCounter = -1;
 
-var Select = ({sizes, sizeSwitcher, quantity}) => {
 
-  var keyGenerator = () => {
-  keyCounter++
-  return keyCounter;
-  }
+var Select = ({keyGenerator, sizes, sizeSwitcher, quantity}) => {
+
 
   return (
     <div>

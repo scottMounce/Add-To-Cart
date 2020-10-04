@@ -3,6 +3,9 @@ import './card.css';
 
 
 const Card = ({image, title, price}) => {
+  if(title.length > 7) {
+    title = title.substring(0,7)
+  }
   return (
     <div className="card">
       <img src={image} />
