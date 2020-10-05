@@ -7,7 +7,7 @@ import { faStar as fiStar} from '@fortawesome/free-regular-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 
-var ProductInfo = ({quantity, storeReviews, store, sales, title, price}) => {
+var ProductInfo = ({selectSize, quantity, storeReviews, store, sales, title, price}) => {
   var icon = '';
   if(quantity.length > 0) {
   var icon = <FontAwesomeIcon icon={faCheck} />
@@ -29,7 +29,7 @@ var ProductInfo = ({quantity, storeReviews, store, sales, title, price}) => {
       </p>
       <h6>{title}</h6>
       <p className="price">
-        ${price}<span>{icon} {inStock}</span>
+        {!selectSize ? `$${price}` : "$__.__"}<span>{icon} {inStock}</span>
       </p>
     </div>
   )
