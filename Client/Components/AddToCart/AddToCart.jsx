@@ -73,8 +73,10 @@ class AddToCart extends React.Component {
   }
 
   componentDidMount(){
+    // var url = window.location.pathname;
+    // var id = url.substring(url.lastIndexOf('/') + 1);
     // updates the state depending on the specific id passed
-    fetch('http://localhost:3003/products/3')
+    fetch(`http://localhost:3003/products/4`)
     .then(response => response.json())
     .then(result => this.setState({
       store: result.store,
