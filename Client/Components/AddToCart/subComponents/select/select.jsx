@@ -3,7 +3,7 @@ import './select.css';
 
 
 
-var Select = ({keyGenerator, sizes, sizeSwitcher, quantity}) => {
+var Select = ({selectSize, keyGenerator, sizes, quantity}) => {
 
 
   return (
@@ -12,12 +12,10 @@ var Select = ({keyGenerator, sizes, sizeSwitcher, quantity}) => {
        <label>
           Size
           <br />
-          <select>
+          <select onChange={() => selectSize()}>
             <option>Select Size</option>
             {sizes.map(size =>
-            <option
-            onClick={sizeSwitcher}
-            key={keyGenerator()}>
+            <option key={keyGenerator()} >
               {size}
             </option>
             )}

@@ -10,6 +10,7 @@ class AddToCart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectSize: true,
       store: "",
       sales: "",
       title: "",
@@ -19,13 +20,21 @@ class AddToCart extends React.Component {
       promoVisible: true,
       storeReviews: 0,
       image: "",
-      firstRowModalItems: [],
+      firstRowModalItems: [{title: "fake", image: "fake", price: "fake"}],
       secondRowModalItems: [],
       keyCounter: -1,
     };
   }
 
   //// UTILITIES
+
+  // changes the state of selectSize to display price
+  selectSize(e) {
+    this.setState({
+      selectSize: false
+    })
+  }
+
 
   // creates a new key for the components
   keyGenerator() {
@@ -60,17 +69,19 @@ class AddToCart extends React.Component {
 
   // onClick changes the price depending on the size
 
-  sizeSwitcher(e) {
-    fetch('http://localhost:3003/products/')
-    .then(response => response.json())
-    .then(result => result.map(item => {
-      if(this.state.title === item.title && item.size === e.target.value.substring(0,1)){
-        this.setState({
-          price: item.price
-        })
-      }
-    }))
-  }
+
+  // will be needed in a real situation probably can be refactored though
+  // sizeSwitcher(e) {
+  //   fetch('http://localhost:3003/products/')
+  //   .then(response => response.json())
+  //   .then(result => result.map(item => {
+  //     if(this.state.title === item.title && item.size === e.target.value.substring(0,1)){
+  //       this.setState({
+  //         price: item.price
+  //       })
+  //     }
+  //   }))
+  // }
 
   componentDidMount(){
     var url = window.location.pathname;
@@ -107,11 +118,11 @@ class AddToCart extends React.Component {
           })
         }
           // fills up the first row in the modal
-        if(firstRowModalProducts.length < 4) {
+        if(product._id < 6 && product._id != 1) {
           firstRowModalProducts.push(product);
 
           // fills up the second row in the modal
-        } else if(secondRowModalProducts.length < 4) {
+        } else if(product._id < 10 && product._id != 1) {
           secondRowModalProducts.push(product);
         }
         // sets the state for the modal first row
@@ -126,8 +137,7 @@ class AddToCart extends React.Component {
             secondRowModalItems: secondRowModalProducts
           })
         }
-      }
-      )
+      })
     })
   )
     .catch(err => console.error(err))
@@ -144,12 +154,13 @@ class AddToCart extends React.Component {
         title={this.state.title}
         price={this.state.price}
         quantity={this.state.quantity}
+        selectSize={this.state.selectSize}
         />
 
         <Select
+        selectSize={this.selectSize.bind(this)}
         keyGenerator={this.keyGenerator.bind(this)}
         sizes={this.state.sizes}
-        sizeSwitcher={this.sizeSwitcher}
         quantity={this.state.quantity}
         />
 
@@ -166,7 +177,17 @@ class AddToCart extends React.Component {
 
         <Promo />
 
-        {this.state.promoVisible? <PromoContainer title={this.state.title} image={this.state.image} price={this.state.price} /> : '' }
+        {this.state.promoVisible? <PromoContainer
+        firstProduct={{
+          title: this.state.title,
+          image: this.state.image,
+          price: this.state.price
+        }}
+        secondProduct={{
+          title: this.state.firstRowModalItems[0].title,
+          image: this.state.firstRowModalItems[0].image,
+          price: this.state.firstRowModalItems[0].price
+        }} /> : '' }
 
       </div>
     );
