@@ -4,7 +4,7 @@ const {Product} = require('./productsDB.js');
 
 
 var addInfo = () => {
-  var id = 0;
+  var id = 1;
   var count = 91;
   var sizes = ['XS', 'S', 'M', 'L', 'XL'];
 
