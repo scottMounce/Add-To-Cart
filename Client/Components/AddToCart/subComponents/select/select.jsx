@@ -4,15 +4,13 @@ import './select.css';
 
 
 var Select = ({selectSize, keyGenerator, sizes, quantity}) => {
-
-
   return (
     <div>
         {/* first Select bar */}
        <label>
           Size
           <br />
-          <select onChange={() => selectSize()}>
+          <select onClick={() => selectSize()}>
             <option>Select Size</option>
             {sizes.map(size =>
             <option key={keyGenerator()} >

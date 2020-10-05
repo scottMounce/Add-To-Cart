@@ -20,7 +20,7 @@ class AddToCart extends React.Component {
       promoVisible: true,
       storeReviews: 0,
       image: "",
-      firstRowModalItems: [{title: "fake", image: "fake", price: "fake"}],
+      firstRowModalItems: [{title: "fake", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSIcf_M6cTmJsZw6B_SMuAtv2_BXK1zp-TuFw&usqp=CAU", price: "fake"}],
       secondRowModalItems: [],
       keyCounter: -1,
     };
@@ -29,10 +29,8 @@ class AddToCart extends React.Component {
   //// UTILITIES
 
   // changes the state of selectSize to display price
-  selectSize(e) {
-    this.setState({
-      selectSize: false
-    })
+  selectSize() {
+    this.setState({selectSize: false});
   }
 
 
