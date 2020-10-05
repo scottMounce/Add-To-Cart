@@ -10,7 +10,7 @@ var Select = ({selectSize, keyGenerator, sizes, quantity}) => {
        <label>
           Size
           <br />
-          <select onClick={() => selectSize()}>
+          <select onChange={() => selectSize()}>
             <option>Select Size</option>
             {sizes.map(size =>
             <option key={keyGenerator()} >
