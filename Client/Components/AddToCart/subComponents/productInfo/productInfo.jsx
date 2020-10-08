@@ -29,7 +29,7 @@ var ProductInfo = ({quantity, storeReviews, store, sales, title, price}) => {
       </p>
       <h6 className={styles.title}>{title}</h6>
       <p className={styles.price}>
-        {price}<span className={styles.span}>{icon} {inStock}</span>
+        ${price}<span className={styles.span}>{icon} {inStock}</span>
       </p>
     </div>
   )
