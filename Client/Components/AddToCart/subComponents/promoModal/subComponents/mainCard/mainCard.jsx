@@ -15,7 +15,7 @@ const MainCard = ({closeModal, title, price, image}) => {
       </div>
       <div className={styles.loading}><span className={styles.innerLoading}></span></div>
       <h2 className={styles.modalDeal}>You are always $1.00 away from getting free shipping from this store</h2>
-      <button onClick={() => closeModal()} className={styles.button, styles.closeModal}>X</button>
+      <button onClick={() => closeModal()} className={styles.closeModal}>X</button>
     </div>
   )
 }
