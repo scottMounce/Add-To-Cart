@@ -1,16 +1,17 @@
 import React from 'react';
-import './select.css';
+import styles from './select.module.css';
 
 
 
-var Select = ({selectSize, keyGenerator, sizes, quantity}) => {
+var Select = ({keyGenerator, sizes, quantity}) => {
   return (
     <div>
+
         {/* first Select bar */}
-       <label>
+       <label className={styles.label} >
           Size
           <br />
-          <select onChange={() => selectSize()}>
+          <select className={styles.select}>
             <option>Select Size</option>
             {sizes.map(size =>
             <option key={keyGenerator()} >
@@ -19,11 +20,12 @@ var Select = ({selectSize, keyGenerator, sizes, quantity}) => {
             )}
           </select>
         </label>
+
         {/* second Select bar */}
-        <label>
+        <label className={styles.label} >
           Quantity
           <br />
-          <select>
+          <select className={styles.select}>
             {quantity.map(number =>
             <option key={keyGenerator()}>
               {number}

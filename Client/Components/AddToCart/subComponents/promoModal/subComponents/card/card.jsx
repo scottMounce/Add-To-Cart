@@ -1,5 +1,5 @@
 import React from 'react';
-import './card.css';
+import styles from './card.module.css';
 
 
 const Card = ({image, title, price}) => {
@@ -7,10 +7,10 @@ const Card = ({image, title, price}) => {
     title = title.substring(0,7)
   }
   return (
-    <div className="card">
-      <img src={image} />
-      <h6>{title}</h6>
-      <h6>${price}</h6>
+    <div className={styles.card}>
+      <img className={styles.image} src={image} />
+      <h6 className={styles.priceAndTitle}>{title}</h6>
+      <h6 className={styles.priceAndTitle}>${price}</h6>
     </div>
   )
 }

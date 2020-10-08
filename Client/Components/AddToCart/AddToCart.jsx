@@ -1,5 +1,5 @@
 import React from 'react';
-import './AddToCart.css';
+import styles from './AddToCart.module.css';
 import ProductInfo from './subComponents/productInfo/productInfo.jsx';
 import Select from './subComponents/select/select.jsx';
 import Promo from './subComponents/promo/promo.jsx';
@@ -10,7 +10,6 @@ class AddToCart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectSize: true,
       store: "",
       sales: "",
       title: "",
@@ -27,12 +26,6 @@ class AddToCart extends React.Component {
   }
 
   //// UTILITIES
-
-  // changes the state of selectSize to display price
-  selectSize() {
-    this.setState({selectSize: false});
-  }
-
 
   // creates a new key for the components
   keyGenerator() {
@@ -81,10 +74,12 @@ class AddToCart extends React.Component {
   //   }))
   // }
 
+
+
   componentDidMount(){
     var url = window.location.pathname;
-    if(url.length < 2) {
-      url = "/1"
+    if(url.length < 2){
+      url = "/1";
     }
     var id = url.substring(url.lastIndexOf('/') + 1);
     // updates the state depending on the specific id passed
@@ -143,7 +138,7 @@ class AddToCart extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className={styles.container}>
 
         <ProductInfo
         storeReviews={this.state.storeReviews}
@@ -152,11 +147,9 @@ class AddToCart extends React.Component {
         title={this.state.title}
         price={this.state.price}
         quantity={this.state.quantity}
-        selectSize={this.state.selectSize}
         />
 
         <Select
-        selectSize={this.selectSize.bind(this)}
         keyGenerator={this.keyGenerator.bind(this)}
         sizes={this.state.sizes}
         quantity={this.state.quantity}

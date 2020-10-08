@@ -1,0 +1,18 @@
+.promos {
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  padding-top: 0.7rem;
+}
+
+.strong {
+  font-weight: 400;
+}
+
+.image {
+  width: 2rem;
+  height: 2rem;
+  padding-right: 10px;
+  padding-top: 3px;
+}

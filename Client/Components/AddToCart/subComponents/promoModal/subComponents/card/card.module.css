@@ -1,0 +1,17 @@
+.card {
+  margin: 1rem;
+  max-height: 130px;
+}
+
+.priceAndTitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  margin: 0.1rem;
+  font-size: 1rem;
+}
+
+.image {
+  max-width: 121px;
+  height: 100px;
+}
