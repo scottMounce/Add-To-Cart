@@ -21,7 +21,7 @@ const PromoContainer = ({firstProduct, secondProduct}) => {
       </div>
 
 
-      <div className={styles.itemInfoContainer}>
+      <div className={`${styles.itemInfoContainer} ${styles.hover}`}>
         <img className={styles.image} src={secondProduct.image} />
         <div className={styles.itemInfoContainerDiv}>
           <h4 className={styles.productTitle}>{secondProduct.title}</h4>

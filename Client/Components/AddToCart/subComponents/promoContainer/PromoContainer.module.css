@@ -7,9 +7,9 @@
 }
 
 .itemInfoContainer {
+  padding: 0.6rem 0;
   display: flex;
   justify-content: flex-start;
-  margin: 0.6rem 0;
 }
 
 .productTitle {
@@ -60,4 +60,10 @@
 
 .rightArrow {
   margin-left: 10px;
+}
+
+.hover:hover {
+  box-shadow: 0 1px 3px 0 #383838;
+  border: 1px rgba(211, 211, 211, 0.877) solid;
+  border-radius: 10px;
 }
