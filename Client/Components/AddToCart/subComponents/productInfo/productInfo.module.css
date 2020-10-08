@@ -8,9 +8,18 @@
 }
 
 .storeName:hover {
+  cursor: pointer;
   text-decoration: underline;
 }
 
+.underline:hover {
+  text-decoration: underline;
+}
+
+
+.storeTotals:hover {
+  cursor: pointer;
+}
 
 .storeTotals {
   margin: 0 0 10px 0;

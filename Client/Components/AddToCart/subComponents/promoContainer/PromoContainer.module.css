@@ -62,7 +62,16 @@
   margin-left: 10px;
 }
 
+.rightArrow:hover {
+  margin-left: 1rem;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
 .hover:hover {
+  cursor: pointer;
   box-shadow: 0 1px 3px 0 #383838;
   border: 1px rgba(211, 211, 211, 0.877) solid;
   border-radius: 10px;

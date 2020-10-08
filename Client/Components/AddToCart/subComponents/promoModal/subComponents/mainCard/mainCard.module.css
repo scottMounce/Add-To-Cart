@@ -75,6 +75,7 @@
 }
 
 .button:hover {
+  cursor: pointer;
   margin-left: 0;
   background-color: #2e2e2e;
   width: 100%;

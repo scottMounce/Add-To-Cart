@@ -18,7 +18,7 @@ var ProductInfo = ({quantity, storeReviews, store, sales, title, price}) => {
   return (
     <div>
       <h4 className={styles.storeName}>{store}</h4>
-      <p className={styles.storeTotals}>
+      <p className={`${styles.storeTotals} ${styles.underline}`}>
         {sales} sales <span className={styles.divider}>|</span>
         <Rating
           initialRating={storeReviews}
