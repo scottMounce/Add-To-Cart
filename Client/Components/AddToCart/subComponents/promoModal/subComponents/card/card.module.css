@@ -1,5 +1,6 @@
 .card {
-  margin: 1rem;
+  margin-top: 0.4rem;
+  padding: 1rem;
   max-height: 130px;
 }
 
@@ -14,4 +15,10 @@
 .image {
   max-width: 121px;
   height: 100px;
+}
+
+.card:hover {
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px 0 #383838;
 }
