@@ -83,7 +83,7 @@ class AddToCart extends React.Component {
     }
     var id = url.substring(url.lastIndexOf('/') + 1);
     // updates the state depending on the specific id passed
-    fetch(`http://18.191.153.144:3003/products/${id}`)
+    fetch(`/products/${id}`)
     .then(response => response.json())
     .then(result => this.setState({
       store: result.store,
@@ -97,7 +97,7 @@ class AddToCart extends React.Component {
     .catch(err => console.error(err))
     .then(() =>
     //checks if there is any other sizes by comparing titles
-      fetch('http://18.191.153.144:3003/products/')
+      fetch('/products/')
       .then(response => response.json())
       .then(result => {
         var firstRowModalProducts = [];
